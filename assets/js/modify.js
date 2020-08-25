@@ -17,7 +17,7 @@ function timer()
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         document.getElementById("timer").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
-
+        document.title = "Rain: " +  hours + "h " + minutes + "m " + seconds + "s ";
         if (distance < 0)
         {
             nextRain = getNextRainTime()
