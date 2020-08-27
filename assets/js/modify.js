@@ -12,9 +12,9 @@ function timer()
         var now = Date.now()
 
         var distance = nextRain - now
-
-        //console.log ((distance / 1000) - 3850)
-        if (((distance / 1000) - 3850) < 1000)
+        rtc = ((distance / 1000) - 3850)
+        console.log (rtc)
+        if ((rtc < 1000) && (rtc > 0))
         {
             rain = true
         }
