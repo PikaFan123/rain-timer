@@ -34,10 +34,17 @@ function timer()
         if (!rain)
         {
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("timer").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
-            document.title ="Rain: " +  hours + "h " + minutes + "m " + seconds + "s ";
+            var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),2);
+            var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000),2);
+            var hts = minutes + "m " + seconds + "s ";
+            var tts = minutes + "m " + seconds + "s "
+            if (hours == 1)
+            {
+                hts = hours + "h " + hts
+                tts = hours + "h " + tts
+            }
+            document.getElementById("timer").innerHTML = hts;
+            document.title = "Rain: " + tts;
         }
         else
         {
@@ -56,3 +63,10 @@ function timer()
         }
     }, 1000)
 }
+
+// https://stackoverflow.com/a/10073788
+function pad(n, width, z) {
+    z = z || '0';
+    n = n + '';
+    return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+  }
