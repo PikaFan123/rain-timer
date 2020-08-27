@@ -13,7 +13,7 @@ function timer()
 
         var distance = nextRain - now
 
-        console.log ((distance / 1000) - 3850)
+        //console.log ((distance / 1000) - 3850)
         if (((distance / 1000) - 3850) < 1000)
         {
             rain = true
