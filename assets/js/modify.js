@@ -41,7 +41,8 @@ function timer()
         }
         else
         {
-            var rt = distance - 3850
+            var rt = distance - (3850 * 1000)
+            //console.log(rt / 1000)
             var minutes = Math.floor((rt % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((rt % (1000 * 60)) / 1000);
             document.getElementById("timer").innerHTML = + minutes + "m " + seconds + "s ";

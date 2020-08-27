@@ -1,6 +1,6 @@
 function getNextRainTime()
 {
-    const baseTime = new Date(1596552717 * 1000)
+    const baseTime = new Date(1596552707 * 1000)
 
     let nextRain = baseTime
 
