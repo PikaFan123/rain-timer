@@ -13,8 +13,3 @@ function getNextRainTime()
 
     return nextRain
 }
-
-function getNextRainEndTime()
-{
-
-}

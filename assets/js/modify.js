@@ -1,7 +1,3 @@
-function setTime()
-{
-    document.getElementById("test").innerHTML = getNextRainTime()
-}
 function timer()
 {
     nextRain = getNextRainTime().getTime()
@@ -13,7 +9,7 @@ function timer()
 
         var distance = nextRain - now
         rtc = ((distance / 1000) - 3850)
-        console.log (rtc)
+        //console.log (rtc)
         if ((rtc < 1000) && (rtc > 0))
         {
             rain = true
