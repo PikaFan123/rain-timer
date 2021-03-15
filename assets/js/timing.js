@@ -9,7 +9,7 @@ Date.prototype.isDstObserved = function () {
     return this.getTimezoneOffset() < this.stdTimezoneOffset();
 }
 
-function getNextRainTime()
+function getNextRainTimeOffline()
 {
     
     ttrem = 3600
@@ -28,6 +28,19 @@ function getNextRainTime()
     {
         nextRain.setSeconds(nextRain.getSeconds() + 4850)
     }
+
+    return nextRain
+}
+
+async function getNextRainTime()
+{
+    let nextRain = new Date(1596552707 * 1000);
+
+    nr = await axios.get('https://pikafan.de/rain/api').then((res) => { console.log(res.data.timestamp); return res.data.timestamp})
+
+    nextRain.setTime(nr)
+
+    console.log(nextRain)
 
     return nextRain
 }

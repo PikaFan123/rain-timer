@@ -1,10 +1,11 @@
-function timer()
+async function timer()
 {
-    nextRain = getNextRainTime().getTime()
+    nrt = await getNextRainTime()
+    nextRain = nrt.getTime()
     rain = false
     // shamelessly stolen from https://www.w3schools.com/howto/howto_js_countdown.asp
     // rain lasts 1000 seconds
-    var x = setInterval(function() {
+    var x = setInterval(async function() {
         var now = Date.now()
 
         var distance = nextRain - now
@@ -59,7 +60,8 @@ function timer()
 
         if (distance <= 0)
         {
-            nextRain = getNextRainTime()
+            nrt = await getNextRainTime()
+            nextRain = nrt.getTime()
         }
     }, 1000)
 }
