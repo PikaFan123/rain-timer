@@ -75,3 +75,8 @@ div.footer-text
     width: 24px;
     height: 24px;
 }
+#sb
+{
+    border: none;
+    background-color: #161616;
+}
