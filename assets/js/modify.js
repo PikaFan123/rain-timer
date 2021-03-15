@@ -1,6 +1,21 @@
 async function timer()
 {
-    nrt = await getNextRainTime()
+    let offset = document.getElementById('dst').checked
+    let useOffline = document.getElementById('noapi').checked
+    let nrt
+    if (useOffline)
+    {
+        nrt = await getNextRainTimeOffline()
+    }
+    else
+    {
+        nrt = await getNextRainTime()
+    }
+    console.log(nrt)
+    if (offset)
+    {
+        nrt.setTime(nrt.getTime() - (1*60*60*1000))
+    }
     nextRain = nrt.getTime()
     rain = false
     // shamelessly stolen from https://www.w3schools.com/howto/howto_js_countdown.asp
@@ -60,7 +75,18 @@ async function timer()
 
         if (distance <= 0)
         {
-            nrt = await getNextRainTime()
+            if (useOffline)
+            {
+                nrt = await getNextRainTimeOffline()
+            }
+            else
+            {
+                nrt = await getNextRainTime()
+            }
+            if (offset)
+            {
+                nrt.setTime(nrt.getTime() - (1*60*60*1000))
+            }
             nextRain = nrt.getTime()
         }
     }, 1000)

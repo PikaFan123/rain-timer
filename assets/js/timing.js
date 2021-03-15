@@ -9,7 +9,7 @@ Date.prototype.isDstObserved = function () {
     return this.getTimezoneOffset() < this.stdTimezoneOffset();
 }
 
-function getNextRainTimeOffline()
+async function getNextRainTimeOffline()
 {
     
     ttrem = 3600
